@@ -1,0 +1,12 @@
+Source: template-zsh-function
+Section: utils
+Priority: optional
+Maintainer: sstix-tools <tools@sstix.invalid>
+Standards-Version: 4.6.0
+Rules-Requires-Root: no
+
+Package: template-zsh-function
+Architecture: all
+Depends: zsh
+Description: Autoloadable Zsh function extension template
+ An autoloadable Zsh function extension packaged for sstix-tools.

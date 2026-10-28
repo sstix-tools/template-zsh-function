@@ -1,0 +1,31 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Install Zsh
+        run: sudo apt-get update && sudo apt-get install -y zsh
+
+      - name: Syntax check and function test
+        run: |
+          zsh -n functions/template-zsh-function
+          zsh -n completion/_template-zsh-function
+
+          # Test loading and executing
+          zsh -c '
+            fpath=($PWD/functions $PWD/completion $fpath)
+            autoload -Uz template-zsh-function
+            template-zsh-function --help
+            template-zsh-function status
+          '

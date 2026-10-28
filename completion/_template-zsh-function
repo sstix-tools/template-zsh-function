@@ -1,0 +1,15 @@
+#compdef template-zsh-function
+
+_arguments \
+  '(-h --help)'{-h,--help}'[Show help message]' \
+  '(-v --version)'{-v,--version}'[Show version]' \
+  '1: :->command' \
+  '*::arg:->args'
+
+case "$state" in
+  command)
+    _values 'command' \
+      'status[Show extension status]' \
+      'run[Execute extension action]'
+    ;;
+esac

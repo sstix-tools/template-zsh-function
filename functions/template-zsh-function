@@ -1,0 +1,40 @@
+# Autoloadable Zsh function: template-zsh-function
+
+template-zsh-function() {
+    emulate -L zsh
+    setopt extended_glob
+
+    local cmd="${1:-status}"
+
+    case "$cmd" in
+        -h|--help)
+            print "Usage: template-zsh-function [OPTIONS] [COMMAND]"
+            print ""
+            print "An autoloadable Zsh function command extension for sstix-tools."
+            print ""
+            print "Options:"
+            print "  -h, --help       Show this help message and exit"
+            print "  -v, --version    Show version information and exit"
+            print ""
+            print "Commands:"
+            print "  status           Show extension status"
+            print "  run              Execute extension action"
+            ;;
+        -v|--version)
+            print "template-zsh-function version 0.1.0"
+            ;;
+        status)
+            print "[template-zsh-function] Status: OK (Zsh autoloaded function)"
+            ;;
+        run)
+            print "[template-zsh-function] Executing Zsh function task..."
+            ;;
+        *)
+            print -u2 "Error: Unknown command '$cmd'"
+            print -u2 "Run 'template-zsh-function --help' for usage."
+            return 1
+            ;;
+    esac
+}
+
+template-zsh-function "$@"
