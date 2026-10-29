@@ -102,7 +102,7 @@ jobs:
           Section: utils
           Priority: optional
           Architecture: all
-          Maintainer: sstix-tools <tools@sstix.invalid>
+          Maintainer: sstix-tools <sstix@stix.foo>
           Depends: zsh
           Description: Autoloadable Zsh function extension template
            An autoloadable Zsh function extension packaged for sstix-tools.
